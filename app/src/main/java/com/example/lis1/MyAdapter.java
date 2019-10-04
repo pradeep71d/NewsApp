@@ -55,7 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             textView1 = itemView.findViewById(R.id.t1);
-            textView2 = itemView.findViewById(R.id.t2);
+           // textView2 = itemView.findViewById(R.id.t2);
         }
     }
 }
