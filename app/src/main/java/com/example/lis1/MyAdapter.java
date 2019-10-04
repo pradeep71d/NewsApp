@@ -24,6 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         this.res = res;
         Al = al;
     }
+
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,31 +32,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         MyHolder myHolder = new MyHolder(view);
         return myHolder;
     }
+
     @Override
     public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
-        final DataClass dataClass = Al.get(position);
-        holder.textView1.setText(dataClass.getName());
-    //    holder.textView2.setText(dataClass.getUrl());
+
+        holder.textView1.setText(Al.get(position).getName());
+//holder.textView1.setText(dataClass.getUrl());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(context, WebViewActivity.class);
-                i.putExtra("key",dataClass.getUrl());
+                Intent i = new Intent(context, WebViewActivity.class);
+                i.putExtra("key", Al.get(position).getUrl());
                 context.startActivity(i);
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return Al.size();
     }
+
     public class MyHolder extends RecyclerView.ViewHolder {
         TextView textView1;
-        TextView textView2;
+
         public MyHolder(@NonNull View itemView) {
             super(itemView);
             textView1 = itemView.findViewById(R.id.t1);
-           // textView2 = itemView.findViewById(R.id.t2);
+            // textView2 = itemView.findViewById(R.id.t2);
         }
     }
 }
