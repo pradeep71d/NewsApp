@@ -41,9 +41,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, WebViewActivity.class);
-                i.putExtra("key", Al.get(position).getUrl());
-                context.startActivity(i);
+                Intent intent = new Intent(context, WebViewActivity.class);//this is method to pass data from adapter to another activity
+                intent.putExtra("key1", Al.get(position).getUrl());//here we are putting data in key and value pair
+                context.startActivity(intent);//Al.get(position).getUrl() is string value
             }
         });
     }

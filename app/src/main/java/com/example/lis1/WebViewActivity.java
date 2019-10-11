@@ -8,15 +8,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebViewActivity extends AppCompatActivity {
-    String s;
+   WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        Bundle bundle =getIntent().getExtras();
-       s= bundle.getString("key");
-        Log.d("TAG","hello:"+s);
-        WebView webView=findViewById(R.id.web);
+        Bundle bundle = getIntent().getExtras();
+        String s = bundle.getString("key1");
+        Log.d("TAG", "hello:" + s);
+        webView = findViewById(R.id.web);
         // loading http://www.google.com url in the the WebView.
         webView.loadUrl(s);
         // this will enable the javascipt.
